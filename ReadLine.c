@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:40:26 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/11/03 22:29:59 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/11/03 22:35:49 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static char	*save_rest(char *str)
 
 static char	*read_to_table(int fd, char *table)
 {
-	char	buffer;
+	char	*buffer;
 	ssize_t	bytes_read;
 	char	*tmp;
 
@@ -79,6 +79,7 @@ static char	*get_line_from_table(char **table)
 	*table = NULL;
 	return (NULL);
 }
+#include <stdio.h>
 
 char	*ReadLine(int fd)
 {
