@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:40:26 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/11/03 22:12:38 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/11/03 22:29:59 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,13 @@ static char	*save_rest(char *str)
 
 static char	*read_to_table(int fd, char *table)
 {
-	char	buffer[BUFFER_SIZE + 1];
+	char	buffer;
 	ssize_t	bytes_read;
 	char	*tmp;
 
+	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buffer)
+		return (NULL);
 	if (!table)
 		table = ft_strdup("");
 	while (!ft_strchr(table, '\n'))
@@ -48,6 +51,7 @@ static char	*read_to_table(int fd, char *table)
 		table = ft_strjoin(table, buffer);
 		free(tmp);
 	}
+	free(buffer);
 	return (table);
 }
 
